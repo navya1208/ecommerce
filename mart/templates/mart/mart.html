@@ -1,0 +1,29 @@
+{% extends 'mart/main.html'%}
+{% load static %}
+
+{% block content %}
+<div class="row">
+  {% for product in products %}
+  <div class="col-lg-4">
+    <img class="thumbnail" src="{{product.imageURL}}">
+
+    <div class="box-element product">
+      <h5><strong>{{product}}</strong></h5>
+      <hr>
+      <button type="button" data-product="{{product.id}}" data-action="add" class="btn btn-outline-primary add-btn update-cart">Add to Cart</button>&nbsp;&nbsp;&nbsp;&nbsp;
+      <a class="btn btn-outline-secondary" href="#">View</a>
+      <h4 style="display:inline; float:right;"><strong>&#8377;{{product.price|floatformat:2}}</strong></h4>
+
+      <div class="star">
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+{% endblock %}
+
+  
